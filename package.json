@@ -1,0 +1,15 @@
+{
+  "name": "KiraYameto-Tox",
+  "version": "0.0.1",
+  "author": "Setkeh.",
+  "description": "Tox protocol Bot Written in Node.js",
+  "contributors": [
+    {
+      "name": "Setkeh",
+      "email": "setkeh@gmail.com"
+    }
+  ],
+    "dependencies" : {
+    "toxcore": "*"
+  }
+}
