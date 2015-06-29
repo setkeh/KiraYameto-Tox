@@ -27,7 +27,19 @@ tox.on('friendRequest', function(e) {
   console.log('Received friend request: ' + e.message());
   console.log('Accepted friend request from ' + e.publicKeyHex());
 });
-         
+
+// Setup groupInvite callback to auto-accept group invites
+tox.on('groupInvite', function(evt) {
+  var groupnum;
+  if(evt.isChatText()) {
+    groupnum = tox.joinGroupchatSync(evt.friend(), evt.data());
+    console.log('Joined text groupchat ' + groupnum);
+  } else if(evt.isChatAV()) {
+    groupnum = tox.getAV().joinGroupchatSync(evt.friend(), evt.data());
+    console.log('Joined audio/video groupchat ' + groupnum);
+  };
+});
+
 // Print out your tox address so others can add it 
 console.log('Address: ' + tox.getAddressHexSync());
           
