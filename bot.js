@@ -21,6 +21,12 @@ tox.on('friendRequest', function(e) {
   var friendName = tox.getFriendNameSync(e.friend());
   console.log(friendName + ': ' + e.message());
 });
+
+tox.on('friendRequest', function(e) {
+  tox.addFriendNoRequestSync(e.publicKey());
+  console.log('Received friend request: ' + e.message());
+  console.log('Accepted friend request from ' + e.publicKeyHex());
+});
          
 // Print out your tox address so others can add it 
 console.log('Address: ' + tox.getAddressHexSync());
