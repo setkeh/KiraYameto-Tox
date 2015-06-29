@@ -30,14 +30,7 @@ tox.on('friendRequest', function(e) {
 
 // Setup groupInvite callback to auto-accept group invites
 tox.on('groupInvite', function(evt) {
-  var groupnum;
-  if(evt.isChatText()) {
-    groupnum = tox.joinGroupchatSync(evt.friend(), evt.data());
-    console.log('Joined text groupchat ' + groupnum);
-  } else if(evt.isChatAV()) {
-    groupnum = tox.getAV().joinGroupchatSync(evt.friend(), evt.data());
-    console.log('Joined audio/video groupchat ' + groupnum);
-  };
+console.log("Got group Invite" + evt);
 });
 
 // Print out your tox address so others can add it 
